@@ -32,10 +32,9 @@ var Box = React.createClass({
   },
 
 componentWillUnmount: function(){
-
-clearInterval(this.timer);
-
+  clearInterval(this.timer);
 },
+
   /**
    * Render a HTML button
    * @return {ReactElement}
@@ -47,4 +46,12 @@ clearInterval(this.timer);
   }
 });
 
-React.render(<Box initialValue='X'/>, document.body);
+var Row = React.createClass({
+  'render': function onRender () {
+    return (
+      <div><Box initialValue='X'/><Box initialValue='X'/><Box initialValue='X'/></div>
+    );
+  }
+});
+
+React.render(<Row/>, document.body);
