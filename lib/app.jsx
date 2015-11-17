@@ -6,17 +6,19 @@ var divStyle = {
 };
 
 var React = require('react');
-
 var Box = React.createClass({
+  getInitialState: function() {
+    return {value:this.props.initialValue};
+  },
   /**
    * Render a HTML button
    * @return {ReactElement}
    */
   'render': function onRender () {
     return (
-      <button style={divStyle}>{this.props.value}</button>
+      <button style={divStyle}>{this.state.value}</button>
     );
   }
 });
 
-React.render(<Box value='X'/>, document.body);
+React.render(<Box initialValue='X'/>, document.body);
