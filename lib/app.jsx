@@ -10,6 +10,22 @@ var Box = React.createClass({
   getInitialState: function() {
     return {value:this.props.initialValue};
   },
+  componentWillMount: function(){
+    var _this = this;
+    this.timer = setInterval(function(){
+      var oldValue = _this.state.value;
+      var newValue = oldValue === 'X' ? 'O': 'X';
+      _this.setState({
+          value: newValue
+      });
+    }, 300);
+  },
+
+componentWillUnmount: function(){
+
+clearInterval(this.timer);
+
+},
   /**
    * Render a HTML button
    * @return {ReactElement}
